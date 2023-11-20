@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Learning Prediction Website</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles2.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Machine Learning Prediction Website</h1>
+
+        <div class="content">
+            <div class="form-container">
+                <form action="/predict" method="post">
+                        <label for="Application Type">Application Typle:</label>
+                        <input type="text" id="Application Type" name="Application Type" required><br><br>
+            
+                        <label for="Signal Strength">Signal Strength:</label>
+                        <input type="text" id="Signal Strength" name="Signal Strength" required><br><br>
+            
+                        <label for="Latency">Latency:</label>
+                        <input type="text" id="Latency" name="Latency" required><br><br>
+            
+                        <label for="Required Bandwidth">Required Bandwidth:</label>
+                        <input type="text" id="Required Bandwidth" name="Required Bandwidth" required><br><br>
+            
+                        <label for="Allocated Bandwidth">Allocated Bandwidth:</label>
+                        <input type="text" id="Allocated Bandwidth" name="Allocated Bandwidth" required><br><br>
+            
+                        <!-- Add more input fields for other features if needed -->
+            
+                        <input type="submit" value="Predict">
+                    </form>
+                </form>
+            </div>
+
+            {% if prediction %}
+                <div class="prediction-container">
+                    <h2>Prediction:</h2>
+                    <p>{{ prediction }}</p>
+                </div>
+            {% endif %}
+            <div class="bar-chart" id = "barChart">
+                <div class="grid-line" ></div>
+                <div class="grid-line" ></div>
+                <div class="grid-line" ></div>
+            </div>
+            <div class="axis-labels">
+                <div class="y-axis-label">Percentage</div>
+            </div>
+            <script>
+                var barValues ={{ prediction | safe }};
+                var barChart = document.getElementById("barChart");
+                for (var i = 0; i < barValues.length; i++) {
+                    var bar = document.createElement("div");
+                    bar.classList.add("bar");
+                    bar.style.height = barValues[i] + "%";
+                    barChart.appendChild(bar);
+                }
+                var xAxisLabels = document.querySelectorAll(".x-axis-label");
+                for (var i = 0; i < barValues.length; i++) {
+                    xAxisLabels[i].textContent = "Category " + (i + 1);
+                }
+            </script>
+            
+        </div>
+    </div>
+</body>
+</html>

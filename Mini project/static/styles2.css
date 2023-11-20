@@ -1,0 +1,121 @@
+body {
+    background-image: url('artificial-intelligence.jpg'); 
+    background-size: cover;
+    background-position: center;
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: #fff;
+}
+.form-container {
+    margin-bottom: 2px;
+    display: inline-block;
+    text-align: left;
+}
+
+.prediction-container {
+    text-align: center;
+}
+.container {
+    text-align: center;
+    max-width: 800px;
+}
+
+.content {
+    margin-top: 20px;
+}
+form {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+}
+
+.bar-chart {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position:fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 200px;
+    width:300px; 
+    max-width: 300px;/* Adjust the height of the bar chart container */
+    margin-top: 20px;
+    background-color: #fff;
+    border: 1px solid #000;
+    box-sizing: border-box;
+     /* Add some space between the prediction and the chart */
+}
+
+.bar {
+    width: 25px; /* Adjust the width of each bar */
+    background-color: #4CAF50;
+    margin: 0 5px; /* Adjust the spacing between bars */
+}
+.grid-line {
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.5);
+    top: 0;
+}
+
+.grid-line:nth-child(odd) {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.axis-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.y-axis-label {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    text-align: center;
+    font-weight: bold;
+    margin-left: 80px;
+    margin-top: 100px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-container {
+    text-align: center;
+}
+
+.prediction-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+
+label, input {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
